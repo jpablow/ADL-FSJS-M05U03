@@ -1,6 +1,6 @@
 .active{
   text-decoration: none;
-  color: red;
+  color: tomato;
   margin-left: 5px;
   margin-right: 5px;
   font-weight: bold;
@@ -8,7 +8,7 @@
 
 .inactive{
   text-decoration: none;
-  color: whitesmoke;
+  color: gainsboro;
   margin-left: 5px;
   margin-right: 5px;
 }
