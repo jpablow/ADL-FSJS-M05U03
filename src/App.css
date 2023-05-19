@@ -1,0 +1,22 @@
+.active{
+  text-decoration: none;
+  color: red;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.inactive{
+  text-decoration: none;
+  color: whitesmoke;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.active:hover{
+color:gray
+}
+
+.inactive:hover{
+  color:gray
+  }
