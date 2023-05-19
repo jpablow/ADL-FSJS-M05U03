@@ -1,3 +1,17 @@
+import Image from 'react-bootstrap/Image';
+import Container from 'react-bootstrap/esm/Container';
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <Container className="text-center">
+        <h1 className="mt-4">Bienvenido maestro pokemón</h1>
+        <Image
+          src="src/assets/img/Pikachu01.png"
+          width="350"
+          className="mt-4"
+        />
+      </Container>
+    </>
+  );
 }
