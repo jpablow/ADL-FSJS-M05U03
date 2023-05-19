@@ -6,11 +6,7 @@ export default function Home() {
     <>
       <Container className="text-center">
         <h1 className="mt-4">Bienvenido maestro pokemón</h1>
-        <Image
-          src="src/assets/img/Pikachu01.png"
-          width="350"
-          className="mt-4"
-        />
+        <Image src="Pikachu01.png" width="350" className="mt-4" />
       </Container>
     </>
   );
