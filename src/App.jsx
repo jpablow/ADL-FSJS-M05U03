@@ -7,16 +7,15 @@ import Pokemones from './views/Pokemones';
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <NavbarComp />
+    <BrowserRouter>
+      <NavbarComp />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/pokemones/" element={<Pokemones />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/pokemones/" element={<Pokemones />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

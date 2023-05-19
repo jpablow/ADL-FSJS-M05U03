@@ -16,7 +16,7 @@ export default function NavbarComp() {
               width="30"
               height="30"
               className="d-inline-block align-top"
-            />{' '}
+            />
           </Navbar.Brand>
           <Container className="text-end">
             <NavLink className={setActiveClass} to="/">
