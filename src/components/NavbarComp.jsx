@@ -12,7 +12,7 @@ export default function NavbarComp() {
           <Navbar.Brand href="/">
             <img
               alt="Poke Ícono"
-              src="PokeIcon.svg"
+              src="/PokeIcon.svg"
               width="30"
               height="30"
               className="d-inline-block align-top"
