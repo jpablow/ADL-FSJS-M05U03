@@ -33,11 +33,13 @@ export default function Pokemones() {
         <option disabled value={'x'}>
           Selecciona un pokemón
         </option>
-        {options.map((op, index) => (
-          <option key={index} value={op}>
-            {op}
-          </option>
-        ))}
+        {options.map((op, index) => {
+          return (
+            <option key={index} value={op}>
+              {op}
+            </option>
+          );
+        })}
       </Form.Select>
 
       <Button className="btn-dark mt-4">Ver detalle</Button>
