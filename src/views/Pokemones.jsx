@@ -2,16 +2,27 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Pokemones() {
   const [options, setOptions] = useState([]);
+  const [pokemon, setPokemon] = useState('');
+  const navigate = useNavigate();
+  const url = 'https://pokeapi.co/api/v2/pokemon/';
 
   const getOptions = async () => {
-    const url = 'https://pokeapi.co/api/v2/pokemon';
     const resp = await fetch(url);
     const data = await resp.json();
     const results = data.results.map((d) => d.name);
     setOptions(results);
+  };
+
+  const verPokemon = async () => {
+    pokemon
+      ? navigate(`/pokemones/${pokemon}`)
+      : alert(
+          'Debes seleccionar un pokemón para ver su información, intenta nuevamente.'
+        );
   };
 
   useEffect(() => {
@@ -28,7 +39,7 @@ export default function Pokemones() {
         aria-label="Default select example"
         className="mt-4"
         defaultValue={'x'}
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => setPokemon(e.target.value)}
       >
         <option disabled value={'x'}>
           Selecciona un pokemón
@@ -42,7 +53,9 @@ export default function Pokemones() {
         })}
       </Form.Select>
 
-      <Button className="btn-dark mt-4">Ver detalle</Button>
+      <Button className="btn-dark mt-4" onClick={() => verPokemon()}>
+        Ver detalle
+      </Button>
     </Container>
   );
 }
