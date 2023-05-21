@@ -14,9 +14,14 @@
 }
 
 .active:hover{
-color:gray
+color:gray;
 }
 
 .inactive:hover{
-  color:gray
-  }
+  color:gray;
+}
+
+.poke{
+  border: solid 1px lightcoral;
+  border-radius: 6px;
+}

@@ -19,7 +19,7 @@ export default function Pokemones() {
 
   const verPokemon = async () => {
     pokemon
-      ? navigate(`/pokemones/${pokemon}`)
+      ? navigate(`/pokemones/charmander`)
       : alert(
           'Debes seleccionar un pokemón para ver su información, intenta nuevamente.'
         );

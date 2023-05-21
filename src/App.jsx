@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavbarComp from './components/NavbarComp';
 import Home from './views/Home';
 import Pokemones from './views/Pokemones';
+import Pokemon from './components/Pokemon';
 
 function App() {
   return (
