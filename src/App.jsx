@@ -1,22 +1,23 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import NavbarComp from './components/NavbarComp';
 import Home from './views/Home';
 import Pokemones from './views/Pokemones';
 import Pokemon from './components/Pokemon';
+import { Provider } from './PokeContext';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Provider>
       <NavbarComp />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pokemones/" element={<Pokemones />} />
-        <Route path="/pokemones/:pokemon" element={<Pokemon />} />
+        <Route path="/pokemones/:pokemonName" element={<Pokemon />} />
       </Routes>
-    </BrowserRouter>
+    </Provider>
   );
 }
 

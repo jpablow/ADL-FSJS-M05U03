@@ -1,35 +1,19 @@
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { PokeContext } from '../PokeContext';
 
 export default function Pokemones() {
-  const [options, setOptions] = useState([]);
-  const [pokemon, setPokemon] = useState('');
-  const navigate = useNavigate();
-  const url = 'https://pokeapi.co/api/v2/pokemon/';
-
-  const getOptions = async () => {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const results = data.results.map((d) => d.name);
-    setOptions(results);
-  };
-
-  const verPokemon = async () => {
-    pokemon
-      ? navigate(`/pokemones/charmander`) // ${pokemon}
-      : alert(
-          'Debes seleccionar un pokemón para ver su información, intenta nuevamente.'
-        );
-  };
-
-  useEffect(() => {
-    return () => {
-      getOptions();
-    };
-  }, []);
+  const {
+    options,
+    setOptions,
+    pokemonName,
+    setPokemonName,
+    verPokemon,
+    pokemon,
+    setPokemon,
+  } = useContext(PokeContext);
 
   return (
     <Container className="text-center">
@@ -39,7 +23,7 @@ export default function Pokemones() {
         aria-label="Default select example"
         className="mt-4"
         defaultValue={'x'}
-        onChange={(e) => setPokemon(e.target.value)}
+        onChange={(e) => setPokemonName(e.target.value)}
       >
         <option disabled value={'x'}>
           Selecciona un pokemón
