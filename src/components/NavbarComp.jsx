@@ -7,7 +7,7 @@ export default function NavbarComp() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" fixed="top">
         <Container>
           <Navbar.Brand href="/">
             <img

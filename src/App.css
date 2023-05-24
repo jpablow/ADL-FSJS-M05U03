@@ -1,3 +1,11 @@
+.ptnav{
+  padding-top: 56px;
+}
+
+.selw{
+  max-width: 300px;
+}
+
 .active{
   text-decoration: none;
   color: tomato;
@@ -24,4 +32,8 @@ color:gray;
 .poke{
   border: solid 1px lightcoral;
   border-radius: 6px;
+}
+
+.pokeImg{
+  height: 200px;
 }

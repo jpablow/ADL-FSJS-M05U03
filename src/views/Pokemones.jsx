@@ -5,23 +5,15 @@ import { useContext } from 'react';
 import { PokeContext } from '../PokeContext';
 
 export default function Pokemones() {
-  const {
-    options,
-    setOptions,
-    pokemonName,
-    setPokemonName,
-    verPokemon,
-    pokemon,
-    setPokemon,
-  } = useContext(PokeContext);
+  const { options, setPokemonName, verPokemon } = useContext(PokeContext);
 
   return (
-    <Container className="text-center">
+    <Container className="ptnav text-center d-flex flex-column align-items-center">
       <h1 className="mt-4">Selecciona un pokemón</h1>
 
       <Form.Select
         aria-label="Default select example"
-        className="mt-4"
+        className="mt-4 selw"
         defaultValue={'x'}
         onChange={(e) => setPokemonName(e.target.value)}
       >

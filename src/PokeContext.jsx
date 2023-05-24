@@ -7,6 +7,7 @@ export const Provider = ({ children }) => {
   const [options, setOptions] = useState({});
   const [pokemonName, setPokemonName] = useState('');
   const [pokemon, setPokemon] = useState({});
+  const [pokemonStats, setPokemonStats] = useState([]);
   const navigate = useNavigate();
   const url = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -26,13 +27,15 @@ export const Provider = ({ children }) => {
       value: stat.base_stat,
     }));
     const types = data.types.map(({ type }) => type.name).join(' - ');
-    setPokemon({ img, stats, types });
-    console.log(pokemon);
+    setPokemon({ img, types });
+    setPokemonStats((state) => {
+      state = [...state, stats];
+      return state;
+    });
   };
 
   const verPokemon = async () => {
     getPokemon(pokemonName);
-
     pokemonName
       ? navigate(`/pokemones/${pokemonName}`)
       : alert(
@@ -46,10 +49,6 @@ export const Provider = ({ children }) => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(pokemon);
-  }, [pokemon]);
-
   const globalState = {
     options,
     setOptions,
@@ -58,6 +57,7 @@ export const Provider = ({ children }) => {
     verPokemon,
     pokemon,
     setPokemon,
+    pokemonStats,
   };
   return (
     <PokeContext.Provider value={globalState}>{children}</PokeContext.Provider>

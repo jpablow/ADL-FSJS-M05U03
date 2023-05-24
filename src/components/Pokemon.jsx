@@ -2,36 +2,47 @@ import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { PokeContext } from '../PokeContext';
+import Badge from 'react-bootstrap/Badge';
+import Col from 'react-bootstrap/esm/Col';
+import Row from 'react-bootstrap/Row';
 
 export default function Pokemones() {
-  const {
-    options,
-    setOptions,
-    pokemonName,
-    setPokemonName,
-    verPokemon,
-    pokemon,
-    setPokemon,
-  } = useContext(PokeContext);
-
+  const { pokemonName, pokemon, pokemonStats } = useContext(PokeContext);
   return (
-    <Container className="mt-4 text-center poke p-4">
+    <Container className="ptnav mt-4 text-center">
       <h2 style={{ textTransform: 'capitalize' }}>{pokemonName}</h2>
-      <Container className="mt-4 p-4 text-center d-flex justify-content-center align-items-center">
-        <Image src={pokemon.img} className="pokeImg" />
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col></Col>
+          <Col
+            md="auto"
+            className="d-flex justify-content-center align-items-center poke"
+          >
+            <Image src={pokemon.img} className="pokeImg" />
 
-        <div className="text-start m-4" id="pokeData">
-          <ul>
-            <li>HP: {pokemon.stats[0].value}</li>
-            <li>Attack: {pokemon.stats[1].value}</li>
-            <li>Defense: {pokemon.stats[2].value}</li>
-            <li>Special Attack: {pokemon.stats[3].value}</li>
-            <li>Special Defense: {pokemon.stats[4].value}</li>
-            <li>Speed: {pokemon.stats[5].value}</li>
-            <br></br>
-            <p>{pokemon.types}</p>
-          </ul>
-        </div>
+            <div className="text-start m-4">
+              <ul>
+                {pokemonStats[0]?.map((x, i) => {
+                  return (
+                    <li key={i}>
+                      {x.name}:{' '}
+                      <Badge pill bg="danger">
+                        {x.value}
+                      </Badge>
+                    </li>
+                  );
+                })}
+                <br></br>
+                <p>
+                  <Badge pill bg="warning" text="dark">
+                    {pokemon.types}
+                  </Badge>
+                </p>
+              </ul>
+            </div>
+          </Col>
+          <Col></Col>
+        </Row>
       </Container>
     </Container>
   );
