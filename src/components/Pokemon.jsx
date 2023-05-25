@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import { useParams } from 'react-router-dom';
 
 export default function Pokemones() {
-  const { pokemonName, pokemon, pokemonStats } = useContext(PokeContext);
+  const { pokemon, pokemonStats } = useContext(PokeContext);
   const { pokeName } = useParams();
 
   return (
