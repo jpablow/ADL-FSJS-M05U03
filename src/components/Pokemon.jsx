@@ -5,12 +5,15 @@ import { PokeContext } from '../PokeContext';
 import Badge from 'react-bootstrap/Badge';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/Row';
+import { useParams } from 'react-router-dom';
 
 export default function Pokemones() {
   const { pokemonName, pokemon, pokemonStats } = useContext(PokeContext);
+  const { pokeName } = useParams();
+
   return (
     <Container className="ptnav mt-4 text-center">
-      <h2 style={{ textTransform: 'capitalize' }}>{pokemonName}</h2>
+      <h2 style={{ textTransform: 'capitalize' }}>{pokeName}</h2>
       <Container>
         <Row className="justify-content-md-center">
           <Col></Col>
